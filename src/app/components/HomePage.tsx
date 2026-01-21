@@ -4,7 +4,7 @@ import { StudioCard } from "./StudioCard";
 import { InstagramFeed } from "./InstagramFeed";
 import { Footer } from "./Footer";
 import { Music, Radio, Mic2, Waves } from "lucide-react";
-import logoImage from 'figma:asset/42ef674de9c079a01b618a13ab84c47b19c67051.png';
+import logoImage from 'figma:asset/sasin-logo.png';
 
 interface HomePageProps {
   onNavigateToBooking: (studioId?: number) => void;
