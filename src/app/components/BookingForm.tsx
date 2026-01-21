@@ -96,7 +96,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
       )}
 
       <form onSubmit={handleSubmit} className="space-y-6">
-        <div>
+        <div className="w-full overflow-hidden">
           <label htmlFor="name" className="block mb-3 text-sm font-light tracking-wide">Nimi *</label>
           <input
             type="text"
@@ -105,12 +105,12 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+            className="w-full box-border px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
             placeholder="Teie nimi"
           />
         </div>
 
-        <div>
+        <div className="w-full overflow-hidden">
           <label htmlFor="email" className="block mb-3 text-sm font-light tracking-wide">E-post *</label>
           <input
             type="email"
@@ -119,12 +119,12 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+            className="w-full box-border px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
             placeholder="teie@email.ee"
           />
         </div>
 
-        <div>
+        <div className="w-full overflow-hidden">
           <label htmlFor="phone" className="block mb-3 text-sm font-light tracking-wide">Telefon *</label>
           <input
             type="tel"
@@ -133,14 +133,14 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
             value={formData.phone}
             onChange={handleChange}
             required
-            className="w-full px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+            className="w-full box-border px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
             placeholder="+372 5XXX XXXX"
           />
         </div>
 
         {isFoonika && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-            <div>
+            <div className="w-full overflow-hidden">
               <label htmlFor="preferredDate" className="block mb-3 text-sm font-light tracking-wide">Soovitud kuupäev *</label>
               <input
                 type="date"
@@ -149,7 +149,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
                 value={formData.preferredDate}
                 onChange={handleChange}
                 required
-                className="w-full px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                className="w-full box-border px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
               />
             </div>
 
@@ -163,7 +163,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
                   value={formData.preferredTimeStart}
                   onChange={handleChange}
                   required
-                  className="flex-1 min-w-0 px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                  className="flex-1 min-w-0 box-border px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
                 />
                 <span className="text-foreground/40 font-light flex-shrink-0">—</span>
                 <input
@@ -173,7 +173,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
                   value={formData.preferredTimeEnd}
                   onChange={handleChange}
                   required
-                  className="flex-1 min-w-0 px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                  className="flex-1 min-w-0 box-border px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
                 />
               </div>
             </div>
