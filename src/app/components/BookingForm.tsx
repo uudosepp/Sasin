@@ -16,7 +16,8 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
     phone: '',
     message: '',
     preferredDate: '',
-    preferredTime: '',
+    preferredTimeStart: '',
+    preferredTimeEnd: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
@@ -34,7 +35,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
       ...formData,
       studio: studioName,
       date: isFoonika ? formData.preferredDate : selectedDate,
-      time: isFoonika ? formData.preferredTime : `${startTime}-${endTime}`,
+      time: isFoonika ? `${formData.preferredTimeStart}-${formData.preferredTimeEnd}` : `${startTime}-${endTime}`,
     });
 
     setSubmitted(true);
@@ -42,7 +43,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
     // Reset after 3 seconds
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', phone: '', message: '', preferredDate: '', preferredTime: '' });
+      setFormData({ name: '', email: '', phone: '', message: '', preferredDate: '', preferredTimeStart: '', preferredTimeEnd: '' });
     }, 3000);
   };
 
@@ -138,7 +139,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
         </div>
 
         {isFoonika && (
-          <>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <label htmlFor="preferredDate" className="block mb-3 text-sm font-light tracking-wide">Soovitud kuupäev *</label>
               <input
@@ -153,18 +154,30 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
             </div>
 
             <div>
-              <label htmlFor="preferredTime" className="block mb-3 text-sm font-light tracking-wide">Soovitud kellaaeg *</label>
-              <input
-                type="time"
-                id="preferredTime"
-                name="preferredTime"
-                value={formData.preferredTime}
-                onChange={handleChange}
-                required
-                className="w-full px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
-              />
+              <label className="block mb-3 text-sm font-light tracking-wide">Soovitud kellaaeg *</label>
+              <div className="flex items-center space-x-2 sm:space-x-4">
+                <input
+                  type="time"
+                  id="preferredTimeStart"
+                  name="preferredTimeStart"
+                  value={formData.preferredTimeStart}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                />
+                <span className="text-foreground/40 font-light">—</span>
+                <input
+                  type="time"
+                  id="preferredTimeEnd"
+                  name="preferredTimeEnd"
+                  value={formData.preferredTimeEnd}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-3 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                />
+              </div>
             </div>
-          </>
+          </div>
         )}
 
         <div>
