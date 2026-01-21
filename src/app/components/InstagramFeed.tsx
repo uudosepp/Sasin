@@ -61,7 +61,7 @@ export function InstagramFeed() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-20">
-          <h2 className="text-6xl md:text-7xl mb-4 font-light tracking-tight">@sasinstuudio</h2>
+          <h2 className="text-4xl sm:text-5xl md:text-7xl mb-4 font-light tracking-tight">@sasinstuudio</h2>
           
           <div className="h-1 w-16 bg-accent mx-auto mb-8"></div>
           

@@ -57,7 +57,7 @@ export function HomePage({
         </div>
 
         <div className="relative z-10 text-center text-white max-w-5xl mx-auto px-6 animate-fade-in">
-          <h1 className="text-5xl sm:text-6xl md:text-8xl mb-8 tracking-tight font-light">
+          <h1 className="text-4xl sm:text-6xl md:text-8xl mb-8 tracking-tight font-light">
             Säsin Stuudio
           </h1>
           <p className="text-xl sm:text-2xl md:text-3xl mb-16 font-light opacity-90 max-w-3xl mx-auto">
@@ -98,7 +98,7 @@ export function HomePage({
         <div className="absolute bottom-20 right-10 opacity-5"></div>
 
         <div className="max-w-4xl mx-auto text-center relative">
-          <h2 className="text-6xl md:text-7xl mb-4 font-light tracking-tight">
+          <h2 className="text-4xl md:text-7xl mb-4 font-light tracking-tight">
             Meie stuudio
           </h2>
           
@@ -127,7 +127,7 @@ export function HomePage({
       <section className="py-24 px-6 bg-muted/30">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-20">
-            <h2 className="text-5xl md:text-6xl mb-4 font-light tracking-tight">
+            <h2 className="text-4xl md:text-6xl mb-4 font-light tracking-tight">
               Broneeri Stuudio
             </h2>
             
