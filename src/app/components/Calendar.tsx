@@ -55,36 +55,45 @@ export function Calendar({ selectedDate, onSelectDate }: CalendarProps) {
     );
   };
 
+  const isPastDate = (day: number) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const dateToCheck = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
+    dateToCheck.setHours(0, 0, 0, 0);
+    return dateToCheck < today;
+  };
+
   const handleDayClick = (day: number) => {
+    if (isPastDate(day)) return;
     const newDate = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day);
     onSelectDate(newDate);
   };
 
   return (
-    <div className="bg-card rounded-lg p-4 sm:p-6 shadow-sm border border-border">
-      <div className="flex items-center justify-between mb-4 sm:mb-6">
-        <h3 className="text-base sm:text-lg">
+    <div className="bg-white p-8 sm:p-10 border border-border/30 rounded-2xl">
+      <div className="flex items-center justify-between mb-8 sm:mb-10">
+        <h3 className="text-2xl sm:text-3xl font-light tracking-tight">
           {monthNames[currentMonth.getMonth()]} {currentMonth.getFullYear()}
         </h3>
-        <div className="flex gap-1 sm:gap-2">
+        <div className="flex gap-2">
           <button
             onClick={previousMonth}
-            className="p-1.5 sm:p-2 hover:bg-muted rounded-lg transition-colors"
+            className="p-2.5 hover:bg-muted/50 transition-colors cursor-pointer"
           >
-            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
+            <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/50" />
           </button>
           <button
             onClick={nextMonth}
-            className="p-1.5 sm:p-2 hover:bg-muted rounded-lg transition-colors"
+            className="p-2.5 hover:bg-muted/50 transition-colors cursor-pointer"
           >
-            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+            <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-foreground/50" />
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-7 gap-1 sm:gap-2">
-        {dayNames.map((day) => (
-          <div key={day} className="text-center text-xs sm:text-sm text-muted-foreground py-1 sm:py-2">
+      <div className="grid grid-cols-7 gap-2 sm:gap-3">
+        {dayNames.map((day, index) => (
+          <div key={`day-${index}`} className="text-center text-xs sm:text-sm text-foreground/40 font-medium py-3 tracking-wider uppercase">
             {day}
           </div>
         ))}
@@ -95,17 +104,21 @@ export function Calendar({ selectedDate, onSelectDate }: CalendarProps) {
 
         {Array.from({ length: daysInMonth }).map((_, i) => {
           const day = i + 1;
+          const past = isPastDate(day);
           return (
             <button
               key={day}
               onClick={() => handleDayClick(day)}
+              disabled={past}
               className={`
-                aspect-square rounded-lg flex items-center justify-center text-xs sm:text-sm transition-all
-                ${isSelected(day) 
-                  ? 'bg-primary text-primary-foreground font-medium' 
+                aspect-square flex items-center justify-center text-sm sm:text-base transition-all font-light
+                ${past
+                  ? 'text-foreground/20 cursor-not-allowed'
+                  : isSelected(day) 
+                  ? 'bg-primary text-primary-foreground font-medium cursor-pointer' 
                   : isToday(day)
-                  ? 'bg-secondary text-secondary-foreground'
-                  : 'hover:bg-muted'
+                  ? 'border border-primary text-primary cursor-pointer'
+                  : 'hover:bg-muted/30 text-foreground/70 hover:text-foreground cursor-pointer'
                 }
               `}
             >
