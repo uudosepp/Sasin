@@ -155,7 +155,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
 
             <div>
               <label className="block mb-3 text-sm font-light tracking-wide">Soovitud kellaaeg *</label>
-              <div className="flex items-center space-x-2 sm:space-x-4">
+              <div className="flex items-center space-x-2 sm:space-x-4 w-full">
                 <input
                   type="time"
                   id="preferredTimeStart"
@@ -163,9 +163,9 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
                   value={formData.preferredTimeStart}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                  className="flex-1 min-w-0 px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
                 />
-                <span className="text-foreground/40 font-light">—</span>
+                <span className="text-foreground/40 font-light flex-shrink-0">—</span>
                 <input
                   type="time"
                   id="preferredTimeEnd"
@@ -173,7 +173,7 @@ export function BookingForm({ studioName, selectedDate, startTime, endTime, isFo
                   value={formData.preferredTimeEnd}
                   onChange={handleChange}
                   required
-                  className="w-full px-3 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
+                  className="flex-1 min-w-0 px-2 sm:px-5 py-4 bg-white border border-border/50 focus:outline-none focus:border-primary transition-all font-light"
                 />
               </div>
             </div>
